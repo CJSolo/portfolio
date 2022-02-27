@@ -1,0 +1,19 @@
+<html>
+<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <h1>
+            CRM built with Django
+        </h1>
+        <p>
+            This CRM helps you manage your customers.
+        </p>
+        <div class="flex justify-center">
+          <a href="{% url 'login' %}" >
+            Login to get started
+          </a>
+
+{% endblock content %}
+</body>
+</html>

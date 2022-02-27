@@ -1,0 +1,47 @@
+<html>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Name: {{ customer.name }}</h1>
+
+  <p><strong>Phone: </strong> {{ customer.phone }}</p> 
+  <p><strong>Address: </strong> {{ customer.address }}</p>
+  <p><strong>City: </strong> {{ customer.city }}</p>
+  <p><strong>State: </strong> {{ customer.state }}</p>
+  <p><strong>Zip: </strong> {{ customer.zip_code }}</p>
+  <p><strong>Email: </strong> {{ customer.email_add }}</p>
+
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Dogs Owned</h4>
+    {% if dog_list %}
+    <ul>
+      {% for dogs in dog_list %}
+        <a href="{% url 'book-detail' dog.pk %}">{{ dog.dog_name}}</a> 
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no dogs.</p>
+    {% endif %}
+
+    <h4>Notes</h4>
+
+  {% if customer_list %}
+  <ul>
+    {% for customer in customer_list %}
+      <li>
+        <a href="{{ customer_notes.get_absolute_url }}">{{ customer_notes.date_made }}</a>  
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no customer notes.</p>
+  {% endif %}
+
+  </div>
+{% endblock %}
+</body>
+</html>

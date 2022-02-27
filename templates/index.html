@@ -1,0 +1,39 @@
+<html>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+<center>{% load static %}
+<img src="{% static 'bark200.jpg' %}" alt="My image">
+</center>
+  <h1>BARK Home</h1>
+  <p>This is a website developed by Youlanda Daffron</p>
+
+                    {% if user.is_authenticated %}
+
+<form action="{% url 'search_results' %}" method="get">
+  <input name="q" type="search" placeholder="Search Customers...">
+</form>
+
+  <h2>Announcements</h2>
+
+  {% if announcements %}
+  <ul>
+{% for announcement in announcements %}
+      <li>
+        {{ announcement.date_made }} {{ announcement.made_by }}  {{announcement.announce }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no announcements in the system.</p>
+  {% endif %}
+
+                    {% else %}
+<h2>Please log in to access system.</h2>
+                    {% endif %}
+
+
+{% endblock %}
+</body>
+</html>

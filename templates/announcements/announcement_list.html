@@ -1,0 +1,20 @@
+<html>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Announcement List</h1>
+  {% if announcement_list %}
+  <ul>
+    {% for announcements in announcement_list %}
+      <li>
+        <a href="{{ announcement.get_absolute_url }}">{{ announcement.date_made }}</a> {{ announcement.made_by }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no announcements in the system.</p>
+  {% endif %}
+{% endblock %}
+</body>
+</html>
