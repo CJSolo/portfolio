@@ -26,13 +26,15 @@ SECRET_KEY = 'django-insecure-f@)qb=9e4*zcu6y(zm47$os__4$y-w=p-)!f)vgi&zva*wcs+*
 # SECURITY WARNING: don't run with debug turned on in production!
 
 local = 'Zayri' in os.path.dirname(os.path.dirname(__file__))
-DEBUG = local
+#DEBUG = local
+DEBUG = True
 
 print(local)
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    'ydaffron.pythonanywhere.com',
 ]
 
 
@@ -65,6 +67,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'templates',
+            '/home/ydaffron/portfolio/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,8 +129,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/ydaffron/portfolio/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
